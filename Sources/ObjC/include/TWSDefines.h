@@ -50,7 +50,6 @@ typedef NS_ENUM(NSInteger, TWSBarSize) {
 	TWSBarSizeHours8,
 	TWSBarSizeDay,
 	TWSBarSizeWeek,
-	TWSBarSizeMonth,
 };
 
 typedef NS_OPTIONS(NSInteger, TWSGenericTick) {

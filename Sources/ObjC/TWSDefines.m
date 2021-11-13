@@ -38,7 +38,6 @@
 			@(TWSBarSizeHours8): @"8 hours",
 			@(TWSBarSizeDay): @"1 day",
 			@(TWSBarSizeWeek): @"1 week",
-			@(TWSBarSizeMonth): @"1 month",
 		};
 	});
 	return sharedInstance;
