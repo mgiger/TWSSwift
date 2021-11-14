@@ -14,7 +14,7 @@
 {
 	if(self = [super init])
 	{
-		_time = [NSDate date];
+		_time = @"";
 	}
 	return self;
 }
@@ -23,8 +23,7 @@
 {
 	if(self = [super init])
 	{
-		NSTimeInterval time = atoi(bar.time.c_str());
-		_time = [NSDate dateWithTimeIntervalSince1970:time];
+		_time = [NSString stringWithUTF8String:bar.time.c_str()];
 		_high = bar.high;
 		_low = bar.low;
 		_open = bar.open;

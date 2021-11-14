@@ -9,7 +9,7 @@
 
 @interface TWSBar : NSObject
 
-@property (nonnull, strong)		NSDate*		time;
+@property (nonnull, strong)		NSString*	time;
 @property (assign)				double		high;
 @property (assign)				double		low;
 @property (assign)				double		open;
