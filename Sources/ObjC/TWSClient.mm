@@ -47,7 +47,7 @@ static NSInteger sMainClientId;			// Just use the last one created
 	return sMainClientId;
 }
 
-- (nonnull instancetype)initWithWrapper:(nonnull id<TWSServiceProtocol, TWSContractProtocol, TWSSnapshotDataProtocol, TWSOrdersProtocol, TWSAccountProtocol>)wrapper
+- (nonnull instancetype)initWithWrapper:(nonnull id<TWSServiceProtocol, TWSContractProtocol, TWSSnapshotDataProtocol, TWSOrdersProtocol, TWSAccountProtocol, TWSSearchProtocol>)wrapper
 {
 	if(self = [super init]) {
 		
@@ -236,6 +236,12 @@ regulatorySnaphsot:(BOOL)regulatorySnaphsot
 - (void)cancelPositions
 {
 	client->cancelPositions();
+}
+
+- (void)reqMatchingSymbols:(NSInteger)reqId
+				   pattern:(nonnull NSString*)pattern
+{
+	client->reqMatchingSymbols(reqId, pattern.UTF8String);
 }
 
 @end

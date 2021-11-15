@@ -224,7 +224,17 @@ void TWSWrapperWrapper::securityDefinitionOptionalParameterEnd(int reqId)
 }
 void TWSWrapperWrapper::softDollarTiers(int reqId, const std::vector<SoftDollarTier> &tiers) { }
 void TWSWrapperWrapper::familyCodes(const std::vector<FamilyCode> &familyCodes) { }
-void TWSWrapperWrapper::symbolSamples(int reqId, const std::vector<ContractDescription> &contractDescriptions) { }
+void TWSWrapperWrapper::symbolSamples(int reqId, const std::vector<ContractDescription> &contractDescriptions)
+{
+	NSMutableArray<TWSContract*>* array = [NSMutableArray array];
+	for(std::vector<ContractDescription>::const_iterator i = contractDescriptions.begin(); i != contractDescriptions.end(); ++i)
+	{
+		TWSContract* contract = [[TWSContract alloc] initWithContract:i->contract];
+		[array addObject:contract];
+	}
+	
+	[wrapper symbolSamples:reqId contracts:array];
+}
 void TWSWrapperWrapper::mktDepthExchanges(const std::vector<DepthMktDataDescription> &depthMktDataDescriptions) { }
 void TWSWrapperWrapper::tickNews(int tickerId, time_t timeStamp, const std::string& providerCode, const std::string& articleId, const std::string& headline, const std::string& extraData) { }
 void TWSWrapperWrapper::smartComponents(int reqId, const SmartComponentsMap& theMap) { }

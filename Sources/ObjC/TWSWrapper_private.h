@@ -11,10 +11,10 @@
 
 class TWSWrapperWrapper: public EWrapper {
 	
-	id<TWSServiceProtocol, TWSContractProtocol, TWSSnapshotDataProtocol, TWSOrdersProtocol, TWSAccountProtocol> wrapper;
+	id<TWSServiceProtocol, TWSContractProtocol, TWSSnapshotDataProtocol, TWSOrdersProtocol, TWSAccountProtocol, TWSSearchProtocol> wrapper;
 	
 public:
-	TWSWrapperWrapper(id<TWSServiceProtocol, TWSContractProtocol, TWSSnapshotDataProtocol, TWSOrdersProtocol, TWSAccountProtocol> wrapper) :
+	TWSWrapperWrapper(id<TWSServiceProtocol, TWSContractProtocol, TWSSnapshotDataProtocol, TWSOrdersProtocol, TWSAccountProtocol, TWSSearchProtocol> wrapper) :
 		wrapper(wrapper)
 	{
 	}

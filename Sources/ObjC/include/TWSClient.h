@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "TWSDefines.h"
 
-@protocol TWSServiceProtocol, TWSContractProtocol, TWSSnapshotDataProtocol, TWSOrdersProtocol, TWSAccountProtocol;
+@protocol TWSServiceProtocol, TWSContractProtocol, TWSSnapshotDataProtocol, TWSOrdersProtocol, TWSAccountProtocol, TWSSearchProtocol;
 @class TWSWrapper;
 @class TWSContract;
 @class TWSTagValue;
@@ -21,7 +21,7 @@
 @property (assign)		NSInteger	clientId;
 
 
-- (nonnull instancetype)initWithWrapper:(nonnull id<TWSServiceProtocol, TWSContractProtocol, TWSSnapshotDataProtocol, TWSOrdersProtocol, TWSAccountProtocol>)wrapper;
+- (nonnull instancetype)initWithWrapper:(nonnull id<TWSServiceProtocol, TWSContractProtocol, TWSSnapshotDataProtocol, TWSOrdersProtocol, TWSAccountProtocol, TWSSearchProtocol>)wrapper;
 
 - (BOOL)connect:(nonnull NSString*)host port:(NSInteger)port clientId:(NSInteger)clientId;
 
@@ -72,5 +72,8 @@ regulatorySnaphsot:(BOOL)regulatorySnaphsot;
 - (void)reqPositions;
 
 - (void)cancelPositions;
+
+- (void)reqMatchingSymbols:(NSInteger)reqId
+				   pattern:(nonnull NSString*)pattern;
 
 @end

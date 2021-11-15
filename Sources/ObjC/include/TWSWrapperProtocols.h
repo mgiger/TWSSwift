@@ -152,5 +152,11 @@
 
 - (void)positionEnd;
 
+@end
+
+@protocol TWSSearchProtocol
+
+- (void)symbolSamples:(NSInteger)reqId
+			contracts:(nonnull NSArray<TWSContract*>*)contracts;
 
 @end
