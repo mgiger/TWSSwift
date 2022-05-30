@@ -1,24 +1,16 @@
-//
-//  TWSWrapper_private.h
-//  TWSAPI
-//
-//  Created by Matthew Giger on 10/3/21.
-//
+/* Copyright (C) 2019 Interactive Brokers LLC. All rights reserved. This code is subject to the terms
+	* and conditions of the IB API Non-Commercial License or the IB API Commercial License, as applicable. */
 
+#pragma once
+#ifndef TWS_API_CLIENT_DEFAULTEWRAPPER_H
+#define TWS_API_CLIENT_DEFAULTEWRAPPER_H
 
-#import "EWrapper.h"
-#import "TWSWrapperProtocols.h"
+#include "EWrapper.h"
 
-class TWSWrapperWrapper: public EWrapper {
-	
-	id<TWSServiceProtocol, TWSContractProtocol, TWSSnapshotDataProtocol, TWSOrdersProtocol, TWSAccountProtocol, TWSSearchProtocol> wrapper;
-	
+class TWSAPIDLLEXP DefaultEWrapper :
+	   public EWrapper
+{
 public:
-	TWSWrapperWrapper(id<TWSServiceProtocol, TWSContractProtocol, TWSSnapshotDataProtocol, TWSOrdersProtocol, TWSAccountProtocol, TWSSearchProtocol> wrapper) :
-		wrapper(wrapper)
-	{
-	}
-	
 	void tickPrice( TickerId tickerId, TickType field, double price, const TickAttrib& attrib);
 	void tickSize(TickerId tickerId, TickType field, Decimal size);
 	void tickOptionComputation( TickerId tickerId, TickType tickType, int tickAttrib, double impliedVol, double delta,
@@ -120,6 +112,5 @@ public:
 	void wshMetaData(int reqId, const std::string& dataJson);
 	void wshEventData(int reqId, const std::string& dataJson);
 
-
 };
-
+#endif
